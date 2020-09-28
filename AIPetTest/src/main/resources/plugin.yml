@@ -1,3 +1,10 @@
 name: AIPetTest
 version: 1.0
 main: aitest.aipettest.AIPetTest
+
+commands:
+  callPet:
+    description: 召唤你的宠物
+    usage: /callPet
+    permission: AIPetTest.callPet
+    permission-message: 您没有权限
