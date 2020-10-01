@@ -1,0 +1,10 @@
+name: Servant
+version: ${project.version}
+main: myplugin.servant.Servant
+api-version: 1.12
+commands:
+  creatServant:
+    description: 测试命令,插件随从
+    usage: 例如/creatServant Miku
+    permission: <plugin name>.creatServant
+    permission-message: 你没有权限
