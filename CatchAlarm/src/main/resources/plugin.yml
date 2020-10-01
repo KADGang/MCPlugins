@@ -1,0 +1,10 @@
+name: CatchAlarm
+version: ${project.version}
+main: catchgame.catchalarm.CatchAlarm
+
+commands:
+  setGlowing:
+    description: 当场开光.
+    usage: /setGlowing [玩家名称]
+    permission: CatchAlarm.setGlowing
+    permission-message: 你没有权限使用该命令.
