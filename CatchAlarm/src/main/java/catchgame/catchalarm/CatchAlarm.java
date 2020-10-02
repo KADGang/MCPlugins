@@ -20,7 +20,7 @@ public final class CatchAlarm extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getLogger().info("CatchAlarm 插件已经加载。");
-        BukkitTask task = new calculateDis(this).runTaskTimer(this, 0, 20L);
+        BukkitTask task = new calculateDis(this).runTaskTimer(this, 0, 5L);
     }
 
     @Override

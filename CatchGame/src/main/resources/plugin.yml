@@ -14,3 +14,9 @@ commands:
     usage: /joinRoom [想要创建的房间名称]
     permission-message: 你没有权限
     permission: CatchGame.joinRoom
+
+  startGame:
+    description: 房间开始游戏。
+    usage: /startGame [房间名称]
+    permission-message: 你没有权限
+    permission: CatchGame.startGame

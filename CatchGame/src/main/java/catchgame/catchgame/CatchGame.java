@@ -29,10 +29,14 @@ public final class CatchGame extends JavaPlugin {
         try {
             if (command.getName().equalsIgnoreCase("setRoom") && sender instanceof Player) {
                 String roomName = args[0];
-                gameRoom newRoom = new gameRoom(roomName, this);
-                newRoom.addPlayer(new gamePlayer((Player) sender));
+                if (roomStringMap.containsKey(roomName)) {
+                    getServer().broadcastMessage("名为" + roomName + "的房间已经存在，请勿重复创建房间。");
+                } else {
+                    gameRoom newRoom = new gameRoom(roomName, this);
+                    newRoom.addPlayer(new gamePlayer((Player) sender));
 
-                roomStringMap.put(roomName, newRoom);
+                    roomStringMap.put(roomName, newRoom);
+                }
                 return true;
             } else if (command.getName().equalsIgnoreCase("joinRoom") && sender instanceof Player) {
                 String roomName = args[0];
@@ -43,11 +47,19 @@ public final class CatchGame extends JavaPlugin {
                     getServer().broadcastMessage("没有找到名为" + roomName + "的房间。");
                 }
                 return true;
+            } else if (command.getName().equalsIgnoreCase("startGame") && sender instanceof Player) {
+                String roomName = args[0];
+                if (roomStringMap.containsKey(roomName)) {
+                    gameRoom room = (gameRoom) roomStringMap.get(roomName);
+                    room.initGame();
+                } else {
+                    getServer().broadcastMessage("没有找到名为" + roomName + "的房间。");
+                }
+                return true;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             throw e;
         }
-
         return false;
     }
 }

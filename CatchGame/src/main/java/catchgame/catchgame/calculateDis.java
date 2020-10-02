@@ -1,4 +1,4 @@
-package catchgame.catchalarm;
+package catchgame.catchgame;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -33,12 +33,9 @@ public class calculateDis extends BukkitRunnable {
                 tz = player.getLocation().getZ();
 
                 if (Math.abs(mx - tx) < 15 && Math.abs(mz - tz) < 15) {
-                    if (!player.isGlowing())
-                        player.setGlowing(true);
                     if (!mainPlayer.isGlowing())
                         mainPlayer.setGlowing(true);
                 } else {
-                    player.setGlowing(false);
                     mainPlayer.setGlowing(false);
                 }
             }
