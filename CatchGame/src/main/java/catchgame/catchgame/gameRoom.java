@@ -39,12 +39,13 @@ public class gameRoom {
             if (i == desperadoIndex) {
                 playerList.set(i, new desperado(playerList.get(i)));
                 broadcastMsg += ("玩家 " + playerList.get(i).getPlayerName() + " 被设置为逃亡者。");
-                BukkitTask task = new calculateDis(plugin).runTaskTimer(plugin, 0, 20L);
             } else {
                 playerList.set(i, new catcher(playerList.get(i)));
             }
         }
         plugin.getServer().broadcastMessage(broadcastMsg);
+        plugin.getServer().broadcastMessage("游戏开始！将在30秒后开始追捕逃亡者！");
+        BukkitTask task = new calculateDis(plugin).runTaskTimer(plugin, 30 * 20L, 10L);
     }
 
     public void addPlayer(gamePlayer player) {
