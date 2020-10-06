@@ -3,13 +3,17 @@ package catchgame.catchgame.basicClass;
 import org.bukkit.entity.Player;
 
 public class gamePlayer {
-    protected Player player;
+    protected String playerID;
 
     public gamePlayer(Player sender) {
-        this.player = sender;
+        this.playerID = sender.getName();
+    }
+
+    public gamePlayer(String PlayerID) {
+        this.playerID = PlayerID;
     }
 
     public String getPlayerName() {
-        return player.getName();
+        return playerID;
     }
 }

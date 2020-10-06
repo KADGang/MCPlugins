@@ -9,6 +9,6 @@ public class desperado extends gamePlayer{
     }
 
     public desperado(gamePlayer gamePlayer) {
-        super(gamePlayer.player);
+        super(gamePlayer.getPlayerName());
     }
 }

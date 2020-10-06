@@ -9,6 +9,6 @@ public class catcher extends gamePlayer{
     }
 
     public catcher(gamePlayer gamePlayer) {
-        super(gamePlayer.player);
+        super(gamePlayer.getPlayerName());
     }
 }

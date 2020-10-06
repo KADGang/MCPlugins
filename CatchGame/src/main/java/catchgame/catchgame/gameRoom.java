@@ -26,16 +26,15 @@ public class gameRoom {
     }
 
     public void initGame() {
-        if (!roomIsFull()) {
+        /*if (!roomIsFull()) {
             plugin.getServer().broadcastMessage("房间" + roomName + "人数未满, 无法开始游戏.");
             return;
-        }
-
+        }*/
         Random random = new Random(1);
         String broadcastMsg = "本次游戏中";
-        int desperadoIndex = random.nextInt(5);
+        int desperadoIndex = random.nextInt(playerList.size());
 
-        for (int i = 0; i < 5; i++) {//TODO:记得修改回5
+        for (int i = 0; i < playerList.size(); i++) {
             if (i == desperadoIndex) {
                 playerList.set(i, new desperado(playerList.get(i)));
                 broadcastMsg += ("玩家 " + playerList.get(i).getPlayerName() + " 被设置为逃亡者。");
