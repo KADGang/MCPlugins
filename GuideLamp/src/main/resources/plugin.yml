@@ -1,4 +1,11 @@
 name: Guidelamp
-version: @version@
-main: myplugin.guidelamp.Guidelamp
+version: 1.0
+main: myplugin.guidelamp.GuideLamp
 api-version: 1.16
+
+commands:
+  GuideLamp:
+    description: ???????
+    usage: /GuideLamp to [player]
+    permission: GuideLamp.user
+    permission-message: You don't have <permission>
