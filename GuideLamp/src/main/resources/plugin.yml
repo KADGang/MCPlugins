@@ -1,0 +1,4 @@
+name: Guidelamp
+version: @version@
+main: myplugin.guidelamp.Guidelamp
+api-version: 1.16
