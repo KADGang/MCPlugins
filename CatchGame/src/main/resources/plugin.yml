@@ -1,0 +1,22 @@
+name: CatchGame
+version: ${project.version}
+main: catchgame.catchgame.CatchGame
+
+commands:
+  setRoom:
+    description: 创建一个游戏房间。
+    usage: /setRoom [想要创建的房间名称]
+    permission-message: 你没有权限
+    permission: CatchGame.setRoom
+
+  joinRoom:
+    description: 加入一个游戏房间。
+    usage: /joinRoom [想要创建的房间名称]
+    permission-message: 你没有权限
+    permission: CatchGame.joinRoom
+
+  startGame:
+    description: 房间开始游戏。
+    usage: /startGame [房间名称]
+    permission-message: 你没有权限
+    permission: CatchGame.startGame
