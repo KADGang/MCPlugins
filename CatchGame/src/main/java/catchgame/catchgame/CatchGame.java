@@ -1,6 +1,7 @@
 package catchgame.catchgame;
 
 import catchgame.catchgame.basicClass.gamePlayer;
+import catchgame.catchgame.gameTools.gameRoom;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -10,8 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class CatchGame extends JavaPlugin {
-
+    //TODO:创建一个容器，记录当前服务器中玩家的空闲状态.
     Map<String, gameRoom> roomStringMap = new HashMap<>();
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -30,7 +32,7 @@ public final class CatchGame extends JavaPlugin {
             if (command.getName().equalsIgnoreCase("setRoom") && sender instanceof Player) {
                 String roomName = args[0];
                 if (roomStringMap.containsKey(roomName)) {
-                    getServer().broadcastMessage("名为" + roomName + "的房间已经存在，请勿重复创建房间。");
+                    sender.sendMessage("名为" + roomName + "的房间已经存在，请勿重复创建房间。");
                 } else {
                     gameRoom newRoom = new gameRoom(roomName, this);
                     newRoom.addPlayer(new gamePlayer((Player) sender));
@@ -44,7 +46,7 @@ public final class CatchGame extends JavaPlugin {
                     gameRoom room = (gameRoom) roomStringMap.get(roomName);
                     room.addPlayer(new gamePlayer((Player) sender));
                 } else {
-                    getServer().broadcastMessage("没有找到名为" + roomName + "的房间。");
+                    sender.sendMessage("没有找到名为" + roomName + "的房间。");
                 }
                 return true;
             } else if (command.getName().equalsIgnoreCase("startGame") && sender instanceof Player) {
@@ -53,7 +55,7 @@ public final class CatchGame extends JavaPlugin {
                     gameRoom room = (gameRoom) roomStringMap.get(roomName);
                     room.initGame();
                 } else {
-                    getServer().broadcastMessage("没有找到名为" + roomName + "的房间。");
+                    sender.sendMessage("没有找到名为" + roomName + "的房间。");
                 }
                 return true;
             }
@@ -62,4 +64,5 @@ public final class CatchGame extends JavaPlugin {
         }
         return false;
     }
+
 }
