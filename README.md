@@ -1,2 +1,2 @@
 # MCPlugins
-mc spigot插件测试
+这里是为Minecraft游戏的spigot服务器所编写的插件合计。
